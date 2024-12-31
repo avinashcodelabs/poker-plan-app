@@ -30,9 +30,8 @@
 .voting-floater {
   position: fixed;
   bottom: 0px;
-  width: 100%;
-  transform: translateX(-50%);
-  left: 50%;
+  width: calc(100% - 40px);
+  left: 20px;
 }
 
 .logo {
@@ -48,7 +47,7 @@
   color: #75e6a4;
   font-weight: bold;
   text-transform: uppercase;
-  text-decoration:wavy;
+  text-decoration: wavy;
   letter-spacing: 1.8rem;
 }
 
@@ -56,5 +55,10 @@
   font-size: 1.4rem;
   letter-spacing: 2px;
   font-weight: bolder;
+}
 
+@media only screen and (min-width: 640px) {
+  .LandingPageIcon {
+    font-size: 25px;
+  }
 }
