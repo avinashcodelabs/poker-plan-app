@@ -6,6 +6,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FiGithub } from "react-icons/fi";
 import { GoHistory } from "react-icons/go";
 import {
+  LiaCheckCircle,
   LiaExternalLinkAltSolid,
   LiaUserEditSolid,
   LiaUsersCogSolid,
@@ -17,7 +18,7 @@ import { QrCode } from "@/components/qrCode";
 import MenuIcon from "../../../public/images/menu.png";
 
 const NavMenu = (props) => {
-  const { userName, handleUserRename, room } = props;
+  const { userName, handleUserRename, room, seriesType, setSeriesType } = props;
   const [isNameRenameAble, setIsNameRenameAble] = React.useState(false);
   const newUseNameRef = React.useState(null);
   const searchParams = useSearchParams();
@@ -92,6 +93,52 @@ const NavMenu = (props) => {
                   className="cursor-pointer me-1"
                 />
                 <span>Set others as host</span>
+              </a>
+            </li>
+            <li
+              onClick={() => {
+                setSeriesType("fibonacciNumbers");
+              }}
+              className="hover:bg-inherit focus:bg-inherit"
+            >
+              <a
+                className="tooltip tooltip-left flex"
+                data-tip="Click on any user's card/tile and pick 'Set as host'"
+              >
+                <LiaUsersCogSolid
+                  size="1.4em"
+                  className="cursor-pointer me-1"
+                />
+                <span>Fibonacci Series</span>
+                {seriesType === "fibonacciNumbers" && (
+                  <LiaCheckCircle
+                    size="1.4em"
+                    className="cursor-pointer me-1"
+                  />
+                )}
+              </a>
+            </li>
+            <li
+              onClick={() => {
+                setSeriesType("tShirtSizing");
+              }}
+              className="hover:bg-inherit focus:bg-inherit"
+            >
+              <a
+                className="border-b pb-4 tooltip tooltip-left flex"
+                data-tip="Click on any user's card/tile and pick 'Set as host'"
+              >
+                <LiaUsersCogSolid
+                  size="1.4em"
+                  className="cursor-pointer me-1"
+                />
+                <span>T Shirt Sizing</span>
+                {seriesType === "tShirtSizing" && (
+                  <LiaCheckCircle
+                    size="1.4em"
+                    className="cursor-pointer me-1"
+                  />
+                )}
               </a>
             </li>
             <li>

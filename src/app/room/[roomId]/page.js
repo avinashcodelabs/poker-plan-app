@@ -19,6 +19,7 @@ let socket;
 export default function RoomPage({ params }) {
   const room = params.roomId;
   const [userName, setUserName] = useLocalStorage("userName", "");
+  const [seriesType, setSeriesType] = useState("fibonacciNumbers");
   if (!room) {
     redirect("/");
   }
@@ -119,6 +120,8 @@ export default function RoomPage({ params }) {
         room={room}
         userName={userName}
         handleUserRename={handleUserRename}
+        seriesType={seriesType}
+        setSeriesType={setSeriesType}
       />
       <div
         className="flex flex-col"
@@ -219,6 +222,7 @@ export default function RoomPage({ params }) {
                   onVote={handleVote}
                   users={users}
                   userName={userName}
+                  seriesType={seriesType}
                 ></Deck>
               )}
             </div>
