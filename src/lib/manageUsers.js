@@ -24,7 +24,7 @@ const updateUser = ({ id, data }) => {
   if (!usersCollection[id]) {
     return null;
   }
-  usersCollection[id] = { ...usersCollection[id], ...data };
+  usersCollection[id] = { ...usersCollection[id], id, ...data };
   return usersCollection[id];
 };
 
